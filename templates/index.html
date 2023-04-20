@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/context.standalone.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+
+    <title>Safe Notes</title>
+</head>
+<body style="background-image: url('../static/images/index-bg.jpg');">
+    <div id="wrapper">
+        <div class="overlay"></div>
+         
+             <!-- Sidebar -->
+        <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav" id="projectList">
+                <div class="sidebar-header">
+                    <div class="sidebar-brand">
+                        <a href="#create" id="createButton" onclick="newProject()">+ New Note</a>
+                        <input type='search' id="projectName" style='width: 80%;border-radius: 8px;display: none;'>
+                    </div>
+                </div>
+
+                {%for project in projects%}
+                <div class="notDynamic" id="{{ project }}">
+                    <li><a style="font-size: 20px;" href="#{{ project }}">{{ project }}&nbsp;&nbsp;<img class="spinner" src="../static/images/icons/eclipse.svg" alt="..." style="display:none"/></a></li>
+                </div>
+                {%endfor%}
+            </ul>
+        </nav>
+             <!-- /#sidebar-wrapper -->
+     
+             <!-- Page Content -->
+             <div id="page-content-wrapper">
+                 <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas" onclick="reCreateButton()">
+                     <span class="hamb-top"></span>
+                     <span class="hamb-middle"></span>
+                     <span class="hamb-bottom"></span>
+                 </button>
+                 
+             </div>
+             <!-- /#page-content-wrapper -->
+             <div class="index_buttons">
+                <button class="bubbly-button" onClick="saveFunc()" id="solesave">Save</button>
+                <button class="bubbly-button" onclick="logoutFunc()">Logout</button>
+                <span class="bubbly-text" style="margin-left: 10%;" id="soletext2">note:</span><span class="bubbly-text" id="soletext" style="margin-left: 1%;"></span>
+            </div>
+            
+             <textarea id="data" name=""
+                       rows="20" cols="130"></textarea>
+         </div>
+         <!-- /#wrapper -->
+         <!-- partial -->
+    <script src="{{ url_for('static', filename='scripts/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/initialize.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/context.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+    
+    <script>
+        context.init({preventDoubleContext: false});
+        context.attach('.notDynamic', menu);
+    </script>
+</body>
+</html>
