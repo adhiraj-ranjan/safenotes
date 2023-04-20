@@ -87,3 +87,7 @@ def delete_project():
     token = request.cookies.get("authtoken")
     file_name = request.args.get("name")
     return datamng.delete_note(token, fname=file_name)
+
+
+
+app.run(host="0.0.0.0", threaded=True)
