@@ -1,4 +1,4 @@
-### safenotes
+# safenotes
 SafeNotes is a simple and open source web application that allows users to create and store notes with ease. The application features a very simple user interface that makes it easy for users to create, view, and edit notes. Additionally, SafeNotes requires authentication, which ensures that your notes are kept safe and secure.
 
 ## Ready to use instance
