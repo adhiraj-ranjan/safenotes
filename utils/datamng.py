@@ -4,6 +4,7 @@ from firebase_admin import db
 import time
 from uuid import uuid4
 from os import environ
+from json import loads
 
 CREDS = loads(b64decode(environ['token']).decode())
 
