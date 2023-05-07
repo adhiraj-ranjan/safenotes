@@ -5,6 +5,7 @@ import time
 from uuid import uuid4
 from os import environ
 from json import loads
+from base64 import b64decode
 
 CREDS = loads(b64decode(environ['token']).decode())
 
