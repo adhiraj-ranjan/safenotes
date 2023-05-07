@@ -3,8 +3,11 @@ from firebase_admin import credentials
 from firebase_admin import db
 import time
 from uuid import uuid4
+from os import environ
 
-cred = credentials.Certificate("utils/key.json")
+CREDS = loads(b64decode(environ['token']).decode())
+
+cred = credentials.Certificate(CREDS)
 firebase_admin.initialize_app(cred, {
     "databaseURL":"https://safenotes-a13be-default-rtdb.asia-southeast1.firebasedatabase.app/"
     })
