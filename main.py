@@ -1,6 +1,7 @@
 from flask import Flask, make_response
 from flask import render_template, request, redirect
 from utils import datamng
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -90,4 +91,5 @@ def delete_project():
 
 
 
-app.run(host="0.0.0.0", threaded=True)
+if __name__ == '__main__':
+    serve(app, host='0.0.0.0')
