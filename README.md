@@ -6,7 +6,7 @@ SafeNotes is a streamlined and open-source web application designed to facilitat
 For immediate access, you can utilize the instance hosted at:
 [SafeNotes Instance](https://safenotes-v1.itertools.repl.co)
 
-A version 2 is also available here :
+A version 2 of SafeNotes is also available here :
 https://github.com/adhiraj-ranjan/safenotes-v2
 
 ## Key Features
